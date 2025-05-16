@@ -1,5 +1,5 @@
 ---
-layout: post 
+layout: single 
 title: "Jupyter 노트북과 UV를 함께 사용하는 효율적인 방법" 
 ---
 
@@ -26,9 +26,50 @@ Jupyter 노트북을 여러 Python 프로젝트에서 사용할 때, 매번 가�
 
 ### 1. Jupyter를 전역(혹은 별도의 환경)에 설치
 
-Jupyter는 한 번만 설치하면 됩니다. `pip` 또는 `uv`를 이용해 설치하세요.
+Jupyter는 한 번만 설치하면 됩니다.
 
 ```bash
 uv pip install jupyterlab
 ```
 
+---
+
+### 2. 프로젝트 가상환경 생성 및 필요한 패키지 설치
+
+`uv`로 가상환경을 만들고, 프로젝트에 필요한 패키지만 설치합니다.
+```bash
+uv venv --seed
+uv pip install numpy pandas matplotlib
+```
+
+---
+
+### 3. ipykernel 설치 및 커널 등록
+
+`ipykernel`을 프로젝트 가상환경에 설치한 뒤, 커널을 등록하면 Jupyter에서 해당 가상환경을 선택할 수 있습니다.
+```bash
+uv pip install ipykernel
+uv run python -m ipykernel install --user --name=프로젝트이름
+```
+
+---
+
+### 4. Jupyter Lab/Notebook 실행
+
+이제 Jupyter를 실행하면, 등록한 커널(프로젝트 환경)을 선택해 작업할 수 있습니다.
+```bash
+jupyter lab
+```
+
+---
+
+## 요약 및 장점
+
+- Jupyter를 한 번만 설치해도, 여러 프로젝트의 가상환경을 독립적으로 관리할 수 있습니다.
+- 커널 등록만으로 각 프로젝트의 패키지 환경을 그대로 사용할 수 있습니다.
+- **uv**를 활용하면 가상환경 생성과 패키지 설치가 훨씬 빠르고 간편해집니다.
+
+---
+
+**참고:**  
+원문: [Using UV with Jupyter Notebooks by Alan Jones](https://medium.com/@alan-jones/using-uv-with-jupyter-notebooks-56d964244d6e)
