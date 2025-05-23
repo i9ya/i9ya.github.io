@@ -1,6 +1,8 @@
 ---
 layout: single 
-title: "Jupyter 노트북과 UV를 함께 사용하는 효율적인 방법" 
+title: "Jupyter 노트북과 UV를 함께 사용하는 효율적인 방법"
+categories: 개발
+tags: [Python]
 ---
 
 # Jupyter 노트북과 UV를 함께 사용하는 효율적인 방법
