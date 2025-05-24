@@ -1,20 +1,20 @@
 ---
 layout: single 
-title: "Jupyter 노트북과 UV를 함께 사용하는 효율적인 방법"
+title: "Jupyter와 uv를 함께 사용하는 효율적인 방법"
 categories: 개발
 tags: [Python]
 toc: true
+author_profile: false
+search: true
 ---
 
-# Jupyter 노트북과 UV를 함께 사용하는 효율적인 방법
-
-Jupyter 노트북을 여러 Python 프로젝트에서 사용할 때, 매번 가상환경마다 Jupyter를 설치하는 번거로움을 겪으셨나요?  
-이번 포스트에서는 **UV**와 **Jupyter**를 효율적으로 연동하는 방법을 소개합니다.  
-이 방법을 활용하면 가상환경은 깔끔하게 유지하면서도, 프로젝트별로 독립적인 Jupyter 환경을 사용할 수 있습니다.
+Jupyter를 여러 프로젝트에서 사용할 때, 매번 가상환경마다 Jupyter를 설치하는 번거로움을 겪으셨나요?  
+이번 포스트에서는 **uv**와 **Jupyter**를 효율적으로 연동하는 방법을 소개합니다.  
+이 방법을 활용하면 Python가상환경은 깔끔하게 유지하면서도, 프로젝트별로 독립적인 Jupyter 환경을 사용할 수 있습니다.
 
 ---
 
-## UV와 Jupyter, 왜 함께 사용할까?
+## uv와 Jupyter, 왜 함께 사용할까?
 
 - **가상환경마다 Jupyter를 중복 설치할 필요 없음**  
   Jupyter를 한 번만 설치하고, 각 프로젝트의 가상환경에서 해당 환경을 인식하도록 커널만 등록하면 됩니다.
@@ -44,6 +44,8 @@ uv pip install jupyterlab
 uv venv --seed
 uv pip install numpy pandas matplotlib
 ```
+`uv venv`는 .venv 폴더를 생성하여 독립적인 Python 가상환경을 만듭니다.  
+`--seed`옵션은 가상환경을 만들 때 pip 등 필수 패키지까지 함께 설치해주는 역할을 합니다.
 
 ---
 
@@ -75,4 +77,4 @@ jupyter lab
 ---
 
 **참고:**  
-원문: [Using UV with Jupyter Notebooks by Alan Jones](https://medium.com/@alan-jones/using-uv-with-jupyter-notebooks-56d964244d6e)
+원문: [Using uv with Jupyter Notebooks by Alan Jones](https://medium.com/@alan-jones/using-uv-with-jupyter-notebooks-56d964244d6e)
